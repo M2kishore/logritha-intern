@@ -1,0 +1,26 @@
+.achiever{
+    
+    display: flex;
+    justify-content: flex-start;
+    border-radius: 100px;
+    border-top: 7px dotted;
+}
+.card-stacked{
+    position: relative;
+    padding-left: 30px;
+}
+
+details{
+    cursor: pointer;
+}
+
+details > summary {
+    list-style: none;
+    padding: 10px;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+.syllabus-card{
+    overflow:auto;
+  }
