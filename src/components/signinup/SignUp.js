@@ -1,9 +1,14 @@
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { useHistory } from 'react-router';
+import M from 'materialize-css';
 import './index.css'
 const SignUp = () => {
+    useEffect(() => {
+        M.AutoInit();
+    }, [])
     const [person, setPerson] = useState({
+        firstName: "",
         phone: "",
         password: ""
     });
@@ -12,40 +17,119 @@ const SignUp = () => {
         e.preventDefault();
         console.log(person);
     }
+    document.addEventListener('DOMContentLoaded', function () {
+        var elems = document.querySelectorAll('.datepicker');
+        var instances = M.Datepicker.init(elems, {
+            format: 'dd-mm-yy'
+        });
+    });
     return (
-        <div className="sign-up container">
-            <h3>Sign Up</h3>
-            <br/>
-            <form onSubmit={handleSubmit}>
-                <div className="input-field">
-                    <input type="tel"
-                        className="validate"
-                        required
-                        id="phone"
-                        placeholder="XXXXXXXXXX"
-                        pattern="[0-9]{10}"
-                        onChange={(e) => { setPerson({ ...person, phone: e.target.value }) }} />
-                    <label htmlFor="phone">Phone +(91)</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">eg: 9XXXXXXX34</span>
+        <div className="sign-up container row">
+            <h3>Begin your Journey from here!</h3>
+            <br />
+            <form onSubmit={handleSubmit} className="col s12">
+                <div className="row">
+                    <div className="input-field col s6">
+                        <input type="text"
+                            required
+                            id="first-name"
+                            onChange={(e) => { setPerson({ ...person, firstName: e.target.value }) }} />
+                        <label htmlFor="first-name">First Name</label>
+                    </div>
+                    <div className="input-field col s6">
+                        <input type="text"
+                            required
+                            id="last-name"
+                            onChange={(e) => { setPerson({ ...person, lastName: e.target.value }) }} />
+                        <label htmlFor="last-name">Last Name</label>
+                    </div>
                 </div>
-                <div className="input-field">
-                    <input type="password"
-                        required
-                        id="password"
-                        onChange={(e) => { setPerson({ ...person, password: e.target.value }) }} />
-                    <label htmlFor="password">Password</label>
+                <div className="row">
+                    <div className="input-field col s6">
+                        <input type="tel"
+                            className="validate"
+                            required
+                            id="phone"
+                            pattern="[0-9]{10}"
+                            onChange={(e) => { setPerson({ ...person, phone: e.target.value }) }} />
+                        <label htmlFor="phone" className="phone-lable">Phone +(91)</label>
+                        <span class="helper-text" data-error="wrong" data-success="right">eg: 9XXXXXXX34</span>
+                    </div>
+                    <div className="input-field col s6">
+                        <input type="text" className="datepicker" />
+                        <label>Select your birthdate</label>
+                    </div>
+                    <label className="left col s12"><h6>Gender</h6></label>
+                    <div className="input-field col s12">
+                        <p className="col s3">
+                            <label>
+                                <input class="with-gap" name="group1" type="radio"/>
+                                <span>Male</span>
+                            </label>
+                        </p>
+                        <p className="col s3">
+                            <label>
+                                <input class="with-gap" name="group1" type="radio" />
+                                <span>Female</span>
+                            </label>
+                        </p>
+                        <p className="col s3">
+                            <label>
+                                <input class="with-gap" name="group1" type="radio" />
+                                <span>Other</span>
+                            </label>
+                        </p>
+                        <p className="col s3">
+                            <label>
+                                <input class="with-gap" name="group1" type="radio" />
+                                <span>Prefer not to say</span>
+                            </label>
+                        </p>
+                    </div>
                 </div>
-                <div className="input-field">
-                    <button type="submit" className="btn blue center">Login with OTP</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<Link to="">Forgot Passsword</Link>
+                <div className="row">
+                    <div className="input-field col s6">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="1">Less than 1 year</option>
+                            <option value="3">1-3 years</option>
+                            <option value="6">3-6 years</option>
+                            <option value="7">More than 6 years</option>
+                        </select>
+                        <label>How long have you been preparing?</label>
+                    </div>
+                    <div className="input-field col s6">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="g1">G1</option>
+                            <option value="g2">G2/G2A</option>
+                            <option value="g4">G4</option>
+                        </select>
+                        <label>What dou you aim for?</label>
+                    </div>
+                    <div className="input-field col s6">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="true">Yes</option>
+                            <option value="false">No</option>
+                        </select>
+                        <label>Are you currently enrolled in any other institutes?</label>
+                    </div>
+                    <div className="input-field col s6">
+                        <select>
+                            <option value="" disabled selected>Choose your option</option>
+                            <option value="tamil">Tamil</option>
+                            <option value="english">English</option>
+                        </select>
+                        <label>Choose your medium of communication?</label>
+                    </div>
+                </div>
+                <div className="input-field center">
+                    <button type="submit" className="btn blue">Create Account</button>
                 </div>
 
             </form>
-            <hr/>
-            <div className="terms-conditions">
-            <p>Create a new account if you do not have one. You will be asked to
-             verify your phone number at the time of creation. By creating an account you agree to our <Link to="">PRIVACY POLICY</Link> &amp; <Link to="">TERMS AND CONDITIONS</Link></p>
-             Get your account here 👉 <Link to="/signin">here</Link>
-            </div>
+            <hr />
         </div>
     )
 }

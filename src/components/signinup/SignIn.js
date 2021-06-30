@@ -1,7 +1,6 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
 import { useHistory } from 'react-router';
-import './index.css'
 const SignIn = () => {
     const [person, setPerson] = useState({
         phone: "",
@@ -22,7 +21,6 @@ const SignIn = () => {
                         className="validate"
                         required
                         id="phone"
-                        placeholder="XXXXXXXXXX"
                         pattern="[0-9]{10}"
                         onChange={(e) => { setPerson({ ...person, phone: e.target.value }) }} />
                     <label htmlFor="phone">Phone +(91)</label>
