@@ -1,6 +1,4 @@
-import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
-import { useHistory } from 'react-router';
 import M from 'materialize-css';
 import './index.css'
 const SignUp = () => {
@@ -12,14 +10,14 @@ const SignUp = () => {
         phone: "",
         password: ""
     });
-    const history = useHistory();
+    //const history = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
         console.log(person);
     }
     document.addEventListener('DOMContentLoaded', function () {
         var elems = document.querySelectorAll('.datepicker');
-        var instances = M.Datepicker.init(elems, {
+        M.Datepicker.init(elems, {
             format: 'dd-mm-yy'
         });
     });
