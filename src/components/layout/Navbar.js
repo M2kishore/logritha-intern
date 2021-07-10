@@ -1,5 +1,10 @@
 import {NavLink} from 'react-router-dom';
+import M from 'materialize-css';
 const Navbar = () => {
+    document.addEventListener('DOMContentLoaded', function() {
+        var elems = document.querySelectorAll('.sidenav');
+        M.Sidenav.init(elems);
+    });
     return ( 
         <nav>
             <div className="nav-wrapper white">

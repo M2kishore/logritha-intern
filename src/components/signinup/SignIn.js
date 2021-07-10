@@ -24,7 +24,7 @@ const SignIn = () => {
                         pattern="[0-9]{10}"
                         onChange={(e) => { setPerson({ ...person, phone: e.target.value }) }} />
                     <label htmlFor="phone">Phone +(91)</label>
-                    <span class="helper-text" data-error="wrong" data-success="right">eg: 9XXXXXXX34</span>
+                    <span className="helper-text" data-error="wrong" data-success="right">eg: 9XXXXXXX34</span>
                 </div>
                 <div className="input-field">
                     <input type="password"

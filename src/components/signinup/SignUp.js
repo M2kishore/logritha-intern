@@ -51,7 +51,7 @@ const SignUp = () => {
                             pattern="[0-9]{10}"
                             onChange={(e) => { setPerson({ ...person, phone: e.target.value }) }} />
                         <label htmlFor="phone" className="phone-lable">Phone +(91)</label>
-                        <span class="helper-text" data-error="wrong" data-success="right">eg: 9XXXXXXX34</span>
+                        <span className="helper-text" data-error="wrong" data-success="right">eg: 9XXXXXXX34</span>
                     </div>
                     <div className="input-field col s6">
                         <input type="text" className="datepicker" />
@@ -61,25 +61,25 @@ const SignUp = () => {
                     <div className="input-field col s12">
                         <p className="col s3">
                             <label>
-                                <input class="with-gap" name="group1" type="radio"/>
+                                <input className="with-gap" name="group1" type="radio"/>
                                 <span>Male</span>
                             </label>
                         </p>
                         <p className="col s3">
                             <label>
-                                <input class="with-gap" name="group1" type="radio" />
+                                <input className="with-gap" name="group1" type="radio" />
                                 <span>Female</span>
                             </label>
                         </p>
                         <p className="col s3">
                             <label>
-                                <input class="with-gap" name="group1" type="radio" />
+                                <input className="with-gap" name="group1" type="radio" />
                                 <span>Other</span>
                             </label>
                         </p>
                         <p className="col s3">
                             <label>
-                                <input class="with-gap" name="group1" type="radio" />
+                                <input className="with-gap" name="group1" type="radio" />
                                 <span>Prefer not to say</span>
                             </label>
                         </p>
@@ -88,7 +88,7 @@ const SignUp = () => {
                 <div className="row">
                     <div className="input-field col s6">
                         <select>
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="DEFAULT" disabled>Choose your option</option>
                             <option value="1">Less than 1 year</option>
                             <option value="3">1-3 years</option>
                             <option value="6">3-6 years</option>
@@ -98,7 +98,7 @@ const SignUp = () => {
                     </div>
                     <div className="input-field col s6">
                         <select>
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="DEFAULT" disabled>Choose your option</option>
                             <option value="g1">G1</option>
                             <option value="g2">G2/G2A</option>
                             <option value="g4">G4</option>
@@ -107,7 +107,7 @@ const SignUp = () => {
                     </div>
                     <div className="input-field col s6">
                         <select>
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="DEFAULT" disabled>Choose your option</option>
                             <option value="true">Yes</option>
                             <option value="false">No</option>
                         </select>
@@ -115,7 +115,7 @@ const SignUp = () => {
                     </div>
                     <div className="input-field col s6">
                         <select>
-                            <option value="" disabled selected>Choose your option</option>
+                            <option value="DEFAULT" disabled>Choose your option</option>
                             <option value="tamil">Tamil</option>
                             <option value="english">English</option>
                         </select>
