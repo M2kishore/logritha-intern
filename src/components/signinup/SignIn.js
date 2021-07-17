@@ -7,6 +7,7 @@ const SignIn = () => {
         phone: "",
         password: ""
     });
+    const [combination, setCombination] = useState(false);
     const history = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -17,11 +18,15 @@ const SignIn = () => {
                 const data = doc.data();
                 if(person.password === data.password){
                     history.push("/dashboard");
+                }else{
+                    setCombination(true);
+                    alert("wrong phone number and password combination");
                 }
             });
         }).catch((error)=>{
             console.log(error);
         })
+        setCombination(true);
         console.log(person);
     }
     return (
@@ -46,6 +51,7 @@ const SignIn = () => {
                         onChange={(e) => { setPerson({ ...person, password: e.target.value }) }} />
                     <label htmlFor="password">Password</label>
                 </div>
+                {combination && <div className="red-text">check your phone number and password combination</div>}
                 <div className="input-field">
                     <button type="submit" className="btn blue center">Login with OTP</button>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;/&nbsp;&nbsp;<Link to="">Forgot Passsword</Link>
                 </div>
