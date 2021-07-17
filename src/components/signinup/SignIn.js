@@ -1,14 +1,27 @@
 import { Link } from 'react-router-dom';
 import { useState } from 'react';
-//import { useHistory } from 'react-router';
+import { useHistory } from 'react-router';
+import db from '../../Firestore';
 const SignIn = () => {
     const [person, setPerson] = useState({
         phone: "",
         password: ""
     });
-    //onst history = useHistory();
+    const history = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
+        db.collection("users").where("phone", "==", person.phone)
+        .get()
+        .then((querySnapshot)=>{
+            querySnapshot.forEach((doc)=>{
+                const data = doc.data();
+                if(person.password === data.password){
+                    history.push("/dashboard");
+                }
+            });
+        }).catch((error)=>{
+            console.log(error);
+        })
         console.log(person);
     }
     return (

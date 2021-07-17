@@ -1,8 +1,9 @@
 import { useState, useEffect, useRef } from 'react';
+import { useHistory } from 'react-router';
 import M from 'materialize-css';
+import db from '../../Firestore';
 import './index.css'
 const SignUp = () => {
-    const ref = useRef(null)
     useEffect(() => {
         M.AutoInit();
     }, [])
@@ -12,16 +13,29 @@ const SignUp = () => {
         phone: "",
         date: "",
         gender: "",
-        password: "",
+        password: "password",
         howLong: 1,
         group: 1,
         otherEnrollment: "true",
         language: "tamil"
 
     });
-    //const history = useHistory();
+    const history = useHistory();
     const handleSubmit = (e) => {
         e.preventDefault();
+        alert("Are you sure?");
+        db.settings({
+            timestampsInSnapshots: true
+        });
+        const userRef = db.collection("users").add({
+            ...person
+        }).then((res) => {
+            console.log(res);
+            history.push("/login");
+
+        }).catch((error)=>{
+            console.error("Error adding document: ",error);
+        })
         console.log(person);
     }
    
