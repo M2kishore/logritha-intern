@@ -24,9 +24,6 @@ const SignUp = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
         alert("Are you sure?");
-        db.settings({
-            timestampsInSnapshots: true
-        });
         const userRef = db.collection("users").add({
             ...person
         }).then((res) => {
