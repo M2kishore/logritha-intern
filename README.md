@@ -1,3 +1,18 @@
+#Logritha Internship
+the following project is a part of the internship where I was exposed to a real world scenario project:
+
+frontend\:
+react,
+backend\:
+firebase
+
+## hosted
+https://logritha-intern.herokuapp.com/
+
+`default password of every registration is password` :)
+
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
