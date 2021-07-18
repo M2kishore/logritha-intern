@@ -1,9 +1,11 @@
-#Logritha Internship
-the following project is a part of the internship where I was exposed to a real world scenario project:
+# Logritha Internship
+The following project is a part of the internship where I was exposed to a real world scenario project:
+## Features
+mobile friendly
 
-frontend\:
+### frontend:
 react,
-backend\:
+### backend\:
 firebase
 
 ## hosted
